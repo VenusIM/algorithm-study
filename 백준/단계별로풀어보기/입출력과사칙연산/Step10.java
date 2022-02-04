@@ -1,4 +1,4 @@
-package src.백준.단계별로풀어보기.입출력과사칙연산;
+package 백준.단계별로풀어보기.입출력과사칙연산;
 
 import java.io.BufferedReader;
 import java.io.IOException;
