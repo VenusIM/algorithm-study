@@ -1,28 +1,32 @@
 package Algorithms.백준.단계별로풀어보기.for문;
 
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
+import java.util.StringTokenizer;
 
-// 10871 문제 X보다 작은 수
-// TODO: 2022-02-05 문제 발생 나중에 다시 보자.
+// 10871 X보다 작은 수
 public class Step11 {
     public static void main(String[] args) throws Exception{
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
 
-        BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
-        String[] NandX = bufferedReader.readLine().split(" ");
+        StringTokenizer st = new StringTokenizer(br.readLine());	// n과 x 입력받기
+        int n = Integer.parseInt(st.nextToken());
+        int x = Integer.parseInt(st.nextToken());
 
-        int N = Integer.parseInt(NandX[0]);
-        int X = Integer.parseInt(NandX[1]);
+        int[] a = new int[n];
 
-        String[] numList = bufferedReader.readLine().split(" ");
+        st = new StringTokenizer(br.readLine());
 
-        StringBuilder stringBuilder = new StringBuilder();
-
-        for(int i = 0; i < N; i++) {
-            if(Integer.parseInt(numList[i]) < 5) {
-                stringBuilder.append(numList[i]).append(" ");
-            }
+        for(int i=0; i<n; i++) {
+            a[i] = Integer.parseInt(st.nextToken());
+            if(a[i] < x)
+                bw.write(a[i] + " ");
         }
-        System.out.print(stringBuilder.deleteCharAt(stringBuilder.lastIndexOf(" ")));
+
+        bw.flush();
+        bw.close();
     }
 }
