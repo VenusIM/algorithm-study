@@ -1,4 +1,4 @@
-package 백준.단계별로풀어보기.for문;
+package Algorithms.백준.단계별로풀어보기.for문;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
