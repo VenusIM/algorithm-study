@@ -3,7 +3,7 @@ package Algorithms.백준.단계별로풀어보기.if문;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 
-//20466 문제 주사위 세개
+//2480 문제 주사위 세개
 public class Step7 {
     public static void main(String[] args) throws Exception{
         BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
