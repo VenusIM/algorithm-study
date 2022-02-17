@@ -19,7 +19,7 @@ public class Step7 {
         if(first == second && second == third)
             result = 10000 + first*1000;
 
-        else if(first != second && second != third) {
+        else if(first != second && second != third && third != first) {
             result = Math.max(first, second);
             result = Math.max(result, third);
             result *= 100;
