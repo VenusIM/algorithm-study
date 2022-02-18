@@ -47,7 +47,7 @@ class Result3 {
 public class Solution3 {
     public static void main(String[] args) throws IOException {
         BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
-//        BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(System.getenv("OUTPUT_PATH")));
+        BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(System.getenv("OUTPUT_PATH")));
 
         int aCount = Integer.parseInt(bufferedReader.readLine().trim());
 
@@ -78,14 +78,14 @@ public class Solution3 {
         List<Long> result = Result3.bitwiseEquations(a, b);
         System.out.println(result);
 
-//        bufferedWriter.write(
-//                result.stream()
-//                        .map(Object::toString)
-//                        .collect(joining("\n"))
-//                        + "\n"
-//        );
+        bufferedWriter.write(
+                result.stream()
+                        .map(Object::toString)
+                        .collect(joining("\n"))
+                        + "\n"
+        );
 
         bufferedReader.close();
-//        bufferedWriter.close();
+        bufferedWriter.close();
     }
 }

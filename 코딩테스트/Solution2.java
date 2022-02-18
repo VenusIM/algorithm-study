@@ -67,7 +67,7 @@ class Result2 {
 public class Solution2 {
     public static void main(String[] args) throws IOException {
         BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
-//        BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(System.getenv("OUTPUT_PATH")));
+        BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(System.getenv("OUTPUT_PATH")));
 
         int num = Integer.parseInt(bufferedReader.readLine().trim());
 
@@ -147,12 +147,12 @@ public class Solution2 {
         long kkk = Long.parseLong(maximum.toString()) - Long.parseLong(minimum.toString());
         System.out.println(kkk);
 
-//        long result = Result.findRange(num);
-//        System.out.println(result);
-//        bufferedWriter.write(String.valueOf(result));
-//        bufferedWriter.newLine();
+        long result = Result2.findRange(num);
+        System.out.println(result);
+        bufferedWriter.write(String.valueOf(result));
+        bufferedWriter.newLine();
 
         bufferedReader.close();
-//        bufferedWriter.close();
+        bufferedWriter.close();
     }
 }

@@ -81,7 +81,7 @@ class Result1 {
 public class Solution1 {
     public static void main(String[] args) throws IOException {
         BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
-//        BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(System.getenv("OUTPUT_PATH")));
+        BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(System.getenv("OUTPUT_PATH")));
 
         int datesCount = Integer.parseInt(bufferedReader.readLine().trim());
 
@@ -98,13 +98,13 @@ public class Solution1 {
         for(String str : result) {
             System.out.println(str);
         }
-//        bufferedWriter.write(
-//                result.stream()
-//                        .collect(joining("\n"))
-//                        + "\n"
-//        );
+        bufferedWriter.write(
+                result.stream()
+                        .collect(joining("\n"))
+                        + "\n"
+        );
 
         bufferedReader.close();
-//        bufferedWriter.close();
+        bufferedWriter.close();
     }
 }
