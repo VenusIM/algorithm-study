@@ -10,34 +10,55 @@ public class Step3 {
         BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
         int num = Integer.parseInt(bufferedReader.readLine());
 
-        // 1 2 6 7  15 16 28...
-        // 3 5 8  14 17 27 ...
-        // 4 9  13 18 26 ...
-        // 10 12 19 25 ...
-        // 11 20 24...
-        // 21 23 ...
-        // 22 ...
+        // 01 02 06 07 15 16 28 29 45...
+        // 03 05 08 14 17 27 30 44...
+        // 04 09 13 18 26 31 43 ...
+        // 10 12 19 25 32 42 ...
+        // 11 20 24 33 41 ...
+        // 21 23 34 40...
+        // 22 35 39...
+        // 36 38...
+        // 37 ...
 
-        // 1, 4, 11, 22 ==> 3 + 4n씩 증가
-        // 1 + 3 = 4 / 4 + (3 + 4) = 11 / 11 + (3 + 4 + 4) = 22
+        // 1, 4, 11, 22 ==> 3 + 4(n -1)씩 증가
+        // 1 + 3 = 4 / 4 + (3 + 4) = 11 / 11 + (3 + 4 + 4) = 22 / 22 + (3 + 4 + 4 + 4) = 37
         int count = 1;
         int result = 1;
 
-        while(true) {
-            if(num < result + 3 + 4*(count-1)) {
-                break;
+        StringBuilder stringBuilder = new StringBuilder();
+
+        // 첫번째 일 경우
+        if(num == 1) {
+
+            stringBuilder
+                    .append(1)
+                    .append("/")
+                    .append(1);
+
+        // 이외의 경우
+        } else {
+
+            while(true) {
+                if(num < result + 3 + 4*(count-2)) {
+                    break;
+                }
+                result += (3 + 4*(count -1));
+                count ++;
             }
-            result += (3 + 4*(count -1));
-            count ++;
+
+            int parent = num - result + 1;
+            int child = 2*count - (num - result) -1;
+
+            if(num < result) {
+                parent = result - num;
+                child = 2*(count -1) - parent + 1;
+            }
+
+            stringBuilder
+                    .append(child)
+                    .append("/")
+                    .append(parent);
         }
-
-
-        int child = (2 * count -1) - count;
-        int parent = (num - result + 1);
-
-        System.out.print(child+"/"+parent);
-        System.out.println(result);
-        System.out.println(num);
-        System.out.println(count);
+        System.out.print(stringBuilder.toString());
     }
 }
