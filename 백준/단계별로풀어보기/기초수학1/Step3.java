@@ -22,43 +22,90 @@ public class Step3 {
 
         // 1, 4, 11, 22 ==> 3 + 4(n -1)씩 증가
         // 1 + 3 = 4 / 4 + (3 + 4) = 11 / 11 + (3 + 4 + 4) = 22 / 22 + (3 + 4 + 4 + 4) = 37
-        int count = 1;
-        int result = 1;
+//        int count = 1;
+//        int result = 1;
+//
+//        StringBuilder stringBuilder = new StringBuilder();
+//
+//        // 첫번째 일 경우
+//        if(num == 1) {
+//
+//            stringBuilder
+//                    .append(1)
+//                    .append("/")
+//                    .append(1);
+//
+//        // 이외의 경우
+//        } else {
+//
+//            while(true) {
+//                if(num < result + 3 + 4*(count-2)) {
+//                    break;
+//                }
+//                result += (3 + 4*(count -1));
+//                count ++;
+//            }
+//
+//            int parent = num - result + 1;
+//            int child = 2*count - (num - result) -1;
+//
+//            if(num < result) {
+//                parent = result - num;
+//                child = 2*(count -1) - parent + 1;
+//            }
+//
+//            stringBuilder
+//                    .append(child)
+//                    .append("/")
+//                    .append(parent);
+//        }
+//        System.out.print(stringBuilder.toString());
+
+        int compare = 1;
+        int append = 0;
+        int count = 0;
+
+        while(compare <= num) {
+            append ++;
+            count ++;
+            compare += append;
+        }
 
         StringBuilder stringBuilder = new StringBuilder();
 
-        // 첫번째 일 경우
-        if(num == 1) {
+        int tmp = compare - append;
+        int diff = num - tmp;
+
+        if(tmp == num && count % 2 == 0) {
 
             stringBuilder
                     .append(1)
                     .append("/")
-                    .append(1);
+                    .append(count);
 
-        // 이외의 경우
-        } else {
-
-            while(true) {
-                if(num < result + 3 + 4*(count-2)) {
-                    break;
-                }
-                result += (3 + 4*(count -1));
-                count ++;
-            }
-
-            int parent = num - result + 1;
-            int child = 2*count - (num - result) -1;
-
-            if(num < result) {
-                parent = result - num;
-                child = 2*(count -1) - parent + 1;
-            }
+        } else if(tmp == num && count % 2 != 0) {
 
             stringBuilder
-                    .append(child)
+                    .append(count)
                     .append("/")
-                    .append(parent);
+                    .append(1);
+
+        } else if(count % 2 == 0) {
+
+            stringBuilder
+                    .append(1 + diff)
+                    .append("/")
+                    .append(count - diff);
+
+        } else {
+
+            stringBuilder
+                    .append(count - diff)
+                    .append("/")
+                    .append(1 + diff);
+
         }
-        System.out.print(stringBuilder.toString());
+
+        System.out.print(stringBuilder);
     }
 }
