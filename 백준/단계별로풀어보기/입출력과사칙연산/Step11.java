@@ -11,5 +11,6 @@ public class Step11 {
         int year = Integer.parseInt(bufferedReader.readLine());
         year -= 543;
         System.out.println(year);
+
     }
 }
