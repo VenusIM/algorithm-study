@@ -31,6 +31,7 @@ public class Step6 {
             } else if(floor == 0) {
                 stringBuilder.append(room);
             } else {
+
             }
 
         }
