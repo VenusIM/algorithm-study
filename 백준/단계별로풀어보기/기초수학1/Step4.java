@@ -38,8 +38,24 @@ public class Step4 {
         if(afternoon == distance) {
             System.out.print(1);
         }else {
-            System.out.print((distance-afternoon)/(afternoon - night) + 1);
-        }
+            int days = (distance - afternoon)/ (afternoon - night);
+            distance -= days * (afternoon - night);
 
+            if(distance == 0) {
+                System.out.print(days);
+                return;
+            }
+
+            while(true) {
+                days ++;
+                distance -= afternoon;
+                if(distance <= 0) {
+                    break;
+                }
+                distance += night;
+
+            }
+            System.out.print(days);
+        }
     }
 }
