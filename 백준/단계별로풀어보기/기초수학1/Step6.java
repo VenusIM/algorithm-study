@@ -9,11 +9,25 @@ public class Step6 {
     public static void main(String[] args) throws IOException {
 
         BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
-        int count = Integer.parseInt(bufferedReader.readLine());
+        int t = Integer.parseInt(bufferedReader.readLine());
 
         StringBuilder stringBuilder = new StringBuilder();
 
-        for(int i = 0; i < count; i++) {
+        int[][] apartment = new int[15][15];
+
+        for(int i = 0; i < 15; i++) {
+            apartment[0][i] = i+1;
+            apartment[i][0] = 1;
+        }
+
+        for(int i = 1; i < 15; i++) {
+            for(int j = 1; j < 15; j++) {
+                apartment[i][j] = apartment[i-1][j] + apartment[i][j-1];
+            }
+
+        }
+
+        for(int i = 0; i < t; i++) {
 
             int floor = Integer.parseInt(bufferedReader.readLine());
             int room = Integer.parseInt(bufferedReader.readLine());
@@ -31,7 +45,9 @@ public class Step6 {
             } else if(floor == 0) {
                 stringBuilder.append(room);
             } else {
+                for(int j = 0; j < floor; j++) {
 
+                }
             }
 
         }
