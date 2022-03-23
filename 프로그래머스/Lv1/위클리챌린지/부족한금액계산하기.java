@@ -39,7 +39,7 @@ public class 부족한금액계산하기 {
 
     // 두번째 풀이 등차 수열의 합 공식 이용 n(n+1)/2
     static long solution2_1(int price, int money, int count) {
-        long answer = (long)price * (count * (count + 1) / 2) - money;
+        long answer = price * (count * (count + 1) / 2) - money;
         return answer < 0 ? 0 : answer;
     }
 
