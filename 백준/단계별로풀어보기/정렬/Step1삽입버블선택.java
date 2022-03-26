@@ -5,7 +5,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 
 // 2750 수 정렬하기
-public class Step1 {
+public class Step1삽입버블선택 {
 
     public static void main(String[] args) throws IOException {
 
