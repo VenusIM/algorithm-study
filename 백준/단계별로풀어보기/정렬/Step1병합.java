@@ -21,6 +21,7 @@ public class Step1병합 {
         sorted = new int[count];
 
         // 병합 정렬 O(N*logN)이 보장된다.
+        // 그러나 메모리 효율성에는 성능이 떨어진다.
         mergeSort(nums, 0, count - 1);
 
         StringBuilder stringBuilder = new StringBuilder();
