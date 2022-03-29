@@ -3,20 +3,18 @@ package Algorithms.프로그래머스.코딩테스트연습.정렬;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.Arrays;
+import java.util.StringTokenizer;
 
 public class H_Index {
 
     public static void main(String[] args) throws IOException {
 
         BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
-        String numStr = bufferedReader.readLine();
-        numStr = numStr.substring(1, numStr.length()-1).replaceAll(" ","");
-        String[] strs = numStr.split(",");
 
-        int[] citations = new int[strs.length];
-
-        for(int i = 0; i < strs.length; i++) {
-            citations[i] = Integer.parseInt(strs[i]);
+        String[] strs = bufferedReader.readLine().split(",");
+        for(int i = 0;) {
+            Integer.parseInt(str);
         }
 
         System.out.print(solution(citations));
@@ -25,8 +23,16 @@ public class H_Index {
 
     static int solution(int[] citations) {
 
+        int answer = 0;
 
+        Arrays.sort(citations);
 
-        return 0;
+        for(int i = citations.length - 1; i >= 0; i++) {
+            if(citations[i] == i+1) {
+                answer = i+1;
+            }
+        }
+
+        return answer;
     }
 }

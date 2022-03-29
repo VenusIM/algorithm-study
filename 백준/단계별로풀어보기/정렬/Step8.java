@@ -38,7 +38,7 @@ public class Step8 {
         for(int i = 0; i < count; i++) {
 
             if(i == 0) {
-                stringBuilder.append(arr[0]).append("\n");
+                stringBuilder.append(arr[0]);
 
             }else if(!arr[i - 1].equals(arr[i])) {
                 stringBuilder.append(arr[i]);

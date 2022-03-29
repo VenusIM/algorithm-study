@@ -11,21 +11,23 @@ public class Step9 {
         BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
         int count = Integer.parseInt(bufferedReader.readLine());
 
-        StringBuilder[] user = new StringBuilder[200];
+        StringBuilder[] user = new StringBuilder[201];
         StringTokenizer stringTokenizer;
 
         for(int i = 0; i < count; i++) {
+
             stringTokenizer  = new StringTokenizer(bufferedReader.readLine());
             int age = Integer.parseInt(stringTokenizer.nextToken());
-            user[age]
-                    = user[age] == null ? new StringBuilder() : user[age].append(stringTokenizer.nextToken()).append(" ");
+
+            user[age] = user[age] == null
+                    ? new StringBuilder().append(stringTokenizer.nextToken()).append(" ")
+                    : user[age].append(stringTokenizer.nextToken()).append(" ");
         }
 
         StringBuilder stringBuilder = new StringBuilder();
         String[] names;
 
-        for(int i = 0; i < count; i++) {
-
+        for(int i = 0; i < 201; i++) {
             if(user[i] != null) {
                 names = user[i].toString().split(" ");
 
