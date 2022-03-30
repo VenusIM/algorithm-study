@@ -13,11 +13,6 @@ public class H_Index {
         BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
 
         String[] strs = bufferedReader.readLine().split(",");
-        for(int i = 0;) {
-            Integer.parseInt(str);
-        }
-
-        System.out.print(solution(citations));
 
     }
 
