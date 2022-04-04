@@ -15,40 +15,32 @@ public class Step5 {
         int n = Integer.parseInt(bufferedReader.readLine());
 
         int[] nums = new int[n];
-
-        int last = 1;
-        for(int i = 0; i < n; i++) {
-
-            nums[i] = Integer.parseInt(bufferedReader.readLine());;
-            if(last != 1 && nums[i-1] < nums[i] && nums[i] < last) {
-                System.out.print("NO");
-                return;
-            }
-            else if(last < nums[i]) {
-                last = nums[i];
-            }
-
-        }
-
+        boolean[] arr = new boolean[n];
 
         Stack<Integer> stack = new Stack<Integer>();
-        StringBuilder stringBuilder = new StringBuilder();
-        int j = 1;
-        for(int i = 0; i < nums.length; i++) {
-            while(j <= nums[i]) {
-                stack.push(j);
-                stringBuilder.append("+").append("\n");
-                j++;
-                if(j == nums.length - 1) break;
-            }
-            int tmp;
-            if((tmp = stack.peek()) == nums[i]) {
-                stack.pop();
-                stringBuilder.append("-");
-                if(i != nums.length - 1) stringBuilder.append("\n");
-            }
-
+        // 배열에 수열 삽입
+        for(int i = 0; i < n; i++) {
+            nums[i] = Integer.parseInt(bufferedReader.readLine());
         }
-        System.out.print(stringBuilder);
+
+        StringBuilder stringBuilder = new StringBuilder();
+        int index = 0;
+        for(int i = 0; i < n; i++) {
+            stack.add(i+1);
+            stringBuilder.append("+").append("\n");
+            while(!stack.isEmpty()) {
+                if(nums[index] <= stack.peek()) {
+                    stringBuilder.append("-").append("\n");
+                    stack.pop();
+                    index++;
+                }else {
+                    break;
+                }
+            }
+        }
+
+        if(stack.isEmpty()) System.out.print(stringBuilder);
+        else System.out.print("NO");
+
     }
 }
