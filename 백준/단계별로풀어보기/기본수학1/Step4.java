@@ -1,4 +1,4 @@
-package Algorithms.백준.단계별로풀어보기.기초수학1;
+package Algorithms.백준.단계별로풀어보기.기본수학1;
 
 import java.io.BufferedReader;
 import java.io.IOException;
