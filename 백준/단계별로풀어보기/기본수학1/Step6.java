@@ -9,50 +9,28 @@ public class Step6 {
     public static void main(String[] args) throws IOException {
 
         BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
-        int t = Integer.parseInt(bufferedReader.readLine());
+        int T = Integer.parseInt(bufferedReader.readLine());
 
-        StringBuilder stringBuilder = new StringBuilder();
-
-        int[][] apartment = new int[15][15];
+        int[][] apart = new int[15][15];
 
         for(int i = 0; i < 15; i++) {
-            apartment[0][i] = i+1;
-            apartment[i][0] = 1;
+            apart[0][i] = i; // 각 호수 0층
+            apart[i][1] = 1; // 층별 1호
         }
 
-        for(int i = 1; i < 15; i++) {
-            for(int j = 1; j < 15; j++) {
-                apartment[i][j] = apartment[i-1][j] + apartment[i][j-1];
+        for (int i = 1; i < 15; i++) { // 1~14층
+            for (int j = 2; j < 15; j++) { // 2~14호
+                apart[i][j] = apart[i][j-1] + apart[i-1][j];
             }
-
         }
 
-        for(int i = 0; i < t; i++) {
-
-            int floor = Integer.parseInt(bufferedReader.readLine());
-            int room = Integer.parseInt(bufferedReader.readLine());
-
-            if(i != 0) {
-                stringBuilder.append("\n");
-            }
-
-            int tmp = 0;
-
-            if(room == 1) {
-                stringBuilder.append(1);
-            } else if (room == 2) {
-                stringBuilder.append(floor+1);
-            } else if(floor == 0) {
-                stringBuilder.append(room);
-            } else {
-                for(int j = 0; j < floor; j++) {
-
-                }
-            }
-
+        StringBuilder stringBuilder = new StringBuilder();
+        for(int i = 0; i < T; i++) {
+            int k = Integer.parseInt(bufferedReader.readLine());
+            int n = Integer.parseInt(bufferedReader.readLine());
+            stringBuilder.append(apart[k][n]);
+            if(i < T - 1) stringBuilder.append("\n");
         }
-
         System.out.print(stringBuilder);
-
     }
 }

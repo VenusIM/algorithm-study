@@ -8,18 +8,38 @@ import java.io.InputStreamReader;
 public class Step7 {
     public static void main(String[] args) throws IOException {
         BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
-        int num = Integer.parseInt(bufferedReader.readLine());
+        int N = Integer.parseInt(bufferedReader.readLine());
+        int five = N;
+        int three = N;
+        int count = 0;
+        int result = 0;
 
-        if((num - 5) % 3 == 0) {
-            System.out.print((num - 5)/3 + 1);
-        } else if((num - 3) % 5 == 0) {
-            System.out.print((num - 3)/5 + 1);
-        } else if(num % 3 == 0) {
-
-        } else if(num % 5 == 0) {
-
+        while(0 <= five) {
+            if(five % 5 == 0) {
+                if(result == 0) result = five/5 + count;
+                else if(five/5 + count < result) result = five/5 + count;
+            }
+            five -= 3;
+            count ++;
         }
 
-    }
+        count = 0;
 
+        while (0 <= three) {
+            if(three % 3 == 0) {
+                if(result == 0) result = three/3 + count;
+                else if(three/3 + count < result) result = three/3 + count;
+            }
+            three -= 5;
+            count ++;
+        }
+
+        switch (result) {
+            case 0 :
+                System.out.print(-1);
+                break;
+            default:
+                System.out.print(result);
+        }
+    }
 }
