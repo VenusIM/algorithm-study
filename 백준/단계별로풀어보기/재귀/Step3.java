@@ -15,14 +15,12 @@ public class Step3 {
 
         stringBuilders = new StringBuilder[N];
         String s = String.format("%" + N + "s" , ' ');
-        for(int i = 0; i < N; i++) {
-            stringBuilders[i] = new StringBuilder(s);
-        }
+        for(int i = 0; i < N; i++) stringBuilders[i] = new StringBuilder(s);
+
 
         star(0, 0, N);
-        for (int i = 0; i < N; i++) {
-            System.out.println(stringBuilders[i]);
-        }
+        for (int i = 0; i < N; i++) System.out.println(stringBuilders[i]);
+
     }
 
     static void star(int x, int y, int N) {
@@ -37,9 +35,7 @@ public class Step3 {
         for (int i = x; i < x + N; i += size) {
             for (int j = y; j < y + N; j += size) {
                 count++;
-                if (count != 5) {
-                    star(i, j, size);
-                }
+                if (count != 5) star(i, j, size);
             }
         }
     }
