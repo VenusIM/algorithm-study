@@ -1,41 +1,46 @@
 package Algorithms.백준.단계별로풀어보기.재귀;
 
 import java.io.BufferedReader;
-import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.StringTokenizer;
+import java.io.IOException;
 
-// 2447번 별찍기 - 10
 public class Step3 {
-    static boolean[][] star;
+    static StringBuilder[] stringBuilders;
+
     public static void main(String[] args) throws IOException {
+
+
         BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
         int N = Integer.parseInt(bufferedReader.readLine());
-        star = new boolean[N][N];
-        star[0][0] = true;
 
-        makePattern(N/3);
-        StringBuilder stringBuilder = new StringBuilder();
+        stringBuilders = new StringBuilder[N];
+        String s = String.format("%" + N + "s" , ' ');
         for(int i = 0; i < N; i++) {
-            for(int j = 0; j < N; j++) {
-                if(star[i][j]) stringBuilder.append("*");
-            }
-            stringBuilder.append("\n");
+            stringBuilders[i] = new StringBuilder(s);
         }
-        System.out.println(stringBuilder);
+
+        star(0, 0, N);
+        for (int i = 0; i < N; i++) {
+            System.out.println(stringBuilders[i]);
+        }
     }
 
-    static void makePattern(int count) {
-        if(count == 0) return;
-        for(int i = 0; i < 3; i++) {
-            for(int j = 0; j < 3; j++) {
-                for(int k = 0; k < count; k++) {
-                    if(i == 1 && j == 1) continue;
-                    if(star[i][j]) star[i][j*(k+1)-1] = star[i*(k+1)-1][j] = true;
+    static void star(int x, int y, int N) {
+
+        if (N == 1) {
+            stringBuilders[x].setCharAt(y, '*');
+            return;
+        }
+
+        int size = N / 3;
+        int count = 0;
+        for (int i = x; i < x + N; i += size) {
+            for (int j = y; j < y + N; j += size) {
+                count++;
+                if (count != 5) {
+                    star(i, j, size);
                 }
             }
         }
-        count--;
-        makePattern(count);
     }
 }
