@@ -5,7 +5,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 
 //11729 하노이탑이동순서
-public class Step4 {
+public class No_11729 {
     static StringBuilder stringBuilder = new StringBuilder();
     public static void main(String[] args) throws IOException {
         BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));

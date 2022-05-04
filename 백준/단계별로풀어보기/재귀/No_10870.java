@@ -5,7 +5,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 
 // 10870 피보나치 수 5
-public class Step2 {
+public class No_10870 {
     public static void main(String[] args) throws IOException {
         BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
         int num = Integer.parseInt(bufferedReader.readLine());
