@@ -5,7 +5,7 @@ import java.io.InputStreamReader;
 import java.io.IOException;
 import java.util.StringTokenizer;
 
-public class Step1 {
+public class No_15649 {
 
     public static int N;
     public static int M;
