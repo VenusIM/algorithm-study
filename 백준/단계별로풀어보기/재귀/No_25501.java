@@ -2,13 +2,18 @@ package 백준.단계별로풀어보기.재귀;
 
 import java.io.*;
 
+/**
+ * BufferedWriter의 경우 버퍼가 가득 찼을 경우 자동 flush를 한다.
+ * 따라서 BufferedWriter 보다 StringBuilder가 성능면에서 좋다.
+ */
+
 public class No_25501 {
 
     static int PUBLIC_COUNT;
 
     public static void main(String[] args) throws IOException {
         BufferedReader bufferedReader =  new BufferedReader(new InputStreamReader(System.in));
-        BufferedWriter bufferedWriter = new BufferedWriter(new OutputStreamWriter(System.out));
+//        BufferedWriter bufferedWriter = new BufferedWriter(new OutputStreamWriter(System.out));
 
         int count = Integer.parseInt(bufferedReader.readLine());
         String str;
