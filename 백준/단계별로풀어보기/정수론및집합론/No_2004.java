@@ -12,26 +12,28 @@ public class No_2004 {
         int max = Integer.parseInt(stringTokenizer.nextToken());
         int min = Integer.parseInt(stringTokenizer.nextToken());
 
-        int result = 0;
-        for(int i = max; i > min; i--) {
-            if(i % 5 == 0) {
-                result += count5(i, 0);
-            }
-        }
+        int result2 = count2(max) - count2(min) - count2(max-min);
+        int result5 = count5(max) - count5(min) - count5(max-min);
 
-        for(int i = 5; i <= min; i++) {
-            if(i % 5 == 0) {
-                result -= count5(i, 0);
-            }
-        }
+        System.out.print(Math.min(result2, result5));
 
-        System.out.print(result);
     }
 
-    static int count5(int num, int result) {
-        if(num < 5) {
-            return result;
+    public static int count5(int num) {
+        int temp = 0;
+        if (num < 5) return 0;
+        for (int i = 5; i <= num; i *= 5) {
+            temp += (num/i);
         }
-        return count5(num/5, ++result);
+        return temp;
+    }
+
+    public static int count2(int num) {
+        int temp = 0;
+        if (num < 2) return 0;
+        for (int i = 2; i <= num; i *= 2) {
+            temp += (num/i);
+        }
+        return temp;
     }
 }
