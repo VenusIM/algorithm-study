@@ -34,23 +34,35 @@ public class No_2981 {
         }
 
         StringBuilder stringBuilder = new StringBuilder();
-        //약수
-        for(int i = 2 ; i <= Math.sqrt(gcd) ; i++) {
+
+        //틀린 이유,,
+//        for(int i = 2 ; i <= Math.sqrt(gcd) ; i++) {
+//            if( gcd % i == 0 ) {
+//                if(i * i == gcd) {
+//                    stringBuilder.append(gcd);
+//                }
+//                stringBuilder.append(i).append(" ");
+//            }
+//        }
+
+        for(int i = 2 ; i <= gcd ; i++) {
             if( gcd % i == 0 ) {
-                stringBuilder.append(i).append(" ");
+                stringBuilder.append(i);
+                if(gcd != i) {
+                    stringBuilder.append(" ");
+                }
             }
         }
-        stringBuilder.append(gcd);
         
         System.out.print(stringBuilder);
     }
 
     // M 최대 공약수
     static int gcd(int a, int b) {
-        while(b!=0) {
-            int r=a%b;
-            a=b;
-            b=r;
+        while(b != 0) {
+            int r = a % b;
+            a = b;
+            b = r;
         }
         return a;
     }
