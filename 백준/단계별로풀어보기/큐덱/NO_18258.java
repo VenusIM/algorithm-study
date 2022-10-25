@@ -1,4 +1,4 @@
-package 백준.단계별로풀어보기.큐;
+package 백준.단계별로풀어보기.큐덱;
 
 import java.io.BufferedReader;
 import java.io.IOException;
