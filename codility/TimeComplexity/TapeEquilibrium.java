@@ -1,4 +1,4 @@
-package Algorithms.codility;
+package Algorithms.codility.TimeComplexity;
 
 /**
  * A non-empty array A consisting of N integers is given. Array A represents numbers on a tape.

@@ -1,4 +1,4 @@
-package Algorithms.codility;
+package Algorithms.codility.Arrays;
 
 import java.util.Map;
 import java.util.HashMap;
