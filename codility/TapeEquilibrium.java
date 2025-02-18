@@ -38,21 +38,19 @@ public class TapeEquilibrium {
     }
 
     public int solution(int[] A) {
+        int length = A.length;
         int min = Integer.MAX_VALUE;
 
-        int total = 0;
-        for (int i = 0; i < A.length; i++) {
-            total += A[i];
+        for (int i = 1; i < length; i++) {
+            A[i] += A[i - 1];
         }
 
-        int sum = 0;
         int temp;
-        for (int i = 0; i < A.length; i++) {
-            temp = Math.abs(2 * (A[i] + sum) - total);
+        for (int i = 0; i < length - 1; i++) {
+            temp = Math.abs(2 * A[i] - A[length - 1]);
             if(temp < min) {
                 min = temp;
             }
-            sum += A[i];
         }
 
         return min;
