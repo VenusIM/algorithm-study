@@ -6,13 +6,26 @@ public class MissingInteger {
 
     public static void main(String[] args) {
         MissingInteger m = new MissingInteger();
-        System.out.println(m.solution(new int[]{1,3,6,4,1,2}));
+        System.out.println(m.solution(new int[]{2}));
     }
 
     public int solution(int[] A) {
         // Implement your solution here
         Arrays.sort(A);
         int result = 1;
+
+        if(A.length == 1){
+            if(A[0] < 1){
+                return 1;
+            } else if(A[0] == 1){
+                return 2;
+            }
+            else {
+                return --A[0];
+            }
+
+        }
+
         for(int i = 0; i < A.length; i++) {
 
             if(i == A.length - 1) {
