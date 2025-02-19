@@ -6,7 +6,7 @@ public class MissingInteger {
 
     public static void main(String[] args) {
         MissingInteger m = new MissingInteger();
-        System.out.println(m.solution(new int[]{2}));
+        System.out.println(m.solution(new int[]{4,5,6,2}));
     }
 
     public int solution(int[] A) {
@@ -23,11 +23,13 @@ public class MissingInteger {
             else {
                 return --A[0];
             }
-
+        } else {
+            if(0 < A[0] && A[0] != 1){
+                return 1;
+            }
         }
 
         for(int i = 0; i < A.length; i++) {
-
             if(i == A.length - 1) {
                 if(A[i] < 1) {
                     break;
