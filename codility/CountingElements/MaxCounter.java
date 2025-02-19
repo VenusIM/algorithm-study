@@ -45,28 +45,32 @@ package Algorithms.codility.CountingElements;
 
 public class MaxCounter {
     public static void main(String[] args) {
-        new MaxCounter().solution(5, new int[]{3, 4, 4, 6, 1, 4, 4});
+        new MaxCounter().solution(5, new int[]{3,4,4,6,1,4,4});
     }
 
     public int[] solution(int N, int[] A) {
         // Implement your solution here
         int[] count = new int[N];
-        int max = Integer.MIN_VALUE;
+        int max = 0;
+        boolean isMax = false;
         for (int i = 0; i < A.length; i++) {
             if(A[i] == N + 1) {
-                for(int j = 0; j < N; j++) {
-                    if(count[j] == max) {
-                        continue;
-                    }
-                    count[j] = max;
-                }
+                isMax = !isMax;
                 continue;
             }
             count[A[i] - 1]++;
             if(max < count[A[i] - 1]) {
+                if(isMax) {
+                    continue;
+                }
                 max = count[A[i] - 1];
             }
+        }
 
+        for(int j = 0; j < N; j++) {
+            if(count[j] < max) {
+                count[j] += max;
+            }
         }
 
         return count;
